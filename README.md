@@ -10,3 +10,8 @@
    `pip install -r requirements.txt`
 5. Настройка порта и запуск:
    `export PORT=5000 && python app.py`
+
+## Запуск в Docker
+1. Сборка образа: `sudo docker build -t lab6-app:v1 .`
+2. Запуск контейнера: `sudo docker run -d --name cloud-app -p 8080:5000 lab6-app:v1`
+3. Проверка: `curl http://localhost:8080`
