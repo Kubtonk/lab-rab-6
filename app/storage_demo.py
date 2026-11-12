@@ -19,8 +19,18 @@ try:
 except Exception:
     pass
 
+# Базовые операции
 client.upload_file('uploads/test.txt', bucket, 'lab9/test.txt')
 print('Файл успешно загружен')
 
 client.download_file(bucket, 'lab9/test.txt', 'uploads/downloaded_test.txt')
 print('Файл успешно получен')
+
+# ДОПОЛНИТЕЛЬНОЕ ЗАДАНИЕ: Вывод списка объектов из заданного префикса
+print('\n--- ДОП. ЗАДАНИЕ: Список объектов в префиксе lab9/ ---')
+response = client.list_objects_v2(Bucket=bucket, Prefix='lab9/')
+if 'Contents' in response:
+    for obj in response['Contents']:
+        print(f" [Файл] {obj['Key']} | Размер: {obj['Size']} байт | Изменен: {obj['LastModified']}")
+else:
+    print('В данном префиксе объекты не найдены.')

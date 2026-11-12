@@ -15,3 +15,14 @@
 1. Сборка образа: `sudo docker build -t lab6-app:v1 .`
 2. Запуск контейнера: `sudo docker run -d --name cloud-app -p 8080:5000 lab6-app:v1`
 3. Проверка: `curl http://localhost:8080`
+
+## Отчет по лабораторной работе 10
+Автоматические проверки (CI)
+В проекте настроена непрерывная интеграция с помощью **GitHub Actions**.
+- **Назначение CI:** Автоматическая проверка кода перед слиянием веток.
+- **События запуска:** `push`, `pull_request`, `workflow_dispatch`.
+- **Способы локальной проверки:**
+  ```bash
+  python -m ruff check app.py tests
+  python -m pytest -q
+  ```
