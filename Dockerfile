@@ -5,4 +5,3 @@ RUN python -m pip install --no-cache-dir -r requirements.txt
 COPY . .
 EXPOSE 5000
 CMD ["python", "app.py"]
-COPY file-does-not-exist-lab11.txt /app/
